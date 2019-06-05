@@ -1,10 +1,35 @@
 .BuildControls {
   width: 100%;
-  background-color: #CF8F2E;
+  background-color: #fafafa;;
   display: flex;
   flex-flow: column;
   align-items: center;
-  box-shadow: 0 2px 1px #ccc;
+  box-shadow: 6px 6px 0px #ccc;
   margin: auto;
   padding: 10px 0;
+  border-radius: 15px;
+}
+
+.BuildControls button {
+    display: block;
+    font: inherit;
+    padding: 5px;
+    margin: 0 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0 0 #cccccc;
+}
+
+.BuildControls button:disabled {
+    background-color: #e5e5e5;
+    border: 1px solid #cdcdcd;
+    color: #ccc;
+    cursor: default;
+}
+
+.BuildControls button:hover:disabled {
+    background-color: #e5e5e5;
+    color: #ccc;
+    cursor: not-allowed;
 }
