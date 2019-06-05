@@ -13,7 +13,6 @@
 
 .BuildControl .Less {
     background-color: #ffb2b2;
-    font-weight: bold;
     color: black;
     width: 80px;
 }
@@ -21,12 +20,5 @@
 .BuildControl .More {
     background-color: #80ff83;
     color: black;
-    font-weight: bold;
     width: 80px;
-}
-
-.BuildControl .Less:hover, .BuildControl .Less:active,
-.BuildControl .More:hover,.BuildControl .More:active  {
-    background-color: #e9e9e9;
-    color: black;
 }

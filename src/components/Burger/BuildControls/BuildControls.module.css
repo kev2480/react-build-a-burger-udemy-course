@@ -19,6 +19,7 @@
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 3px 3px 0 0 #cccccc;
+    font-weight: bold;
 }
 
 .BuildControls button:disabled {
@@ -32,4 +33,9 @@
     background-color: #e5e5e5;
     color: #ccc;
     cursor: not-allowed;
+}
+
+.BuildControls button:hover, .BuildControls button:active {
+    background-color: #e9e9e9;
+    color: black;
 }
