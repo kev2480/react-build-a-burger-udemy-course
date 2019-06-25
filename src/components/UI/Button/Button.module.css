@@ -1,0 +1,33 @@
+.Button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px 0 #bebebe;
+    transition: box-shadow 0.3s ease-in;
+}
+
+.Button:first-of-type {
+    margin-left: 0;
+}
+
+.Button:hover {
+  box-shadow: 0 3px 5px 0 #bebebe;
+}
+
+.Button:active {
+  box-shadow: 0 0px 3px 0 #bebebe;
+}
+
+.Success {
+    color: rgb(16, 195, 0);
+}
+
+.Danger {
+    color: rgb(255, 90, 29);
+}
