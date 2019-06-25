@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -17,7 +19,22 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 3.99
+    totalPrice: 3.99,
+    purchasable: false
+  }
+
+  updatePurchaseState () {
+    const ingredients = {
+      ...this.state.ingredients
+    };
+    const sum = Object.keys(ingredients)
+      .map(igKey => {
+        return ingredients[igKey]
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
+    this.setState({purchasable: sum > 0});
   }
 
   addIngredientHandler = (type) => {
@@ -30,7 +47,7 @@ class BurgerBuilder extends Component {
     const priceAddition = INGREDIENT_PRICES[type];
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice + priceAddition;
-    this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
+    this.setState({totalPrice: newPrice, ingredients: updatedIngredients}, this.updatePurchaseState);
   }
 
   removeIngredientHandler = (type) => {
@@ -44,7 +61,7 @@ class BurgerBuilder extends Component {
       const priceRemoval = INGREDIENT_PRICES[type];
       const oldPrice = this.state.totalPrice;
       const newPrice = oldPrice - priceRemoval;
-      this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
+      this.setState({totalPrice: newPrice, ingredients: updatedIngredients}, this.updatePurchaseState);
     }
   }
 
@@ -64,7 +81,11 @@ class BurgerBuilder extends Component {
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
           disabled={disableInfo}
-          price={this.state.totalPrice}/>
+          price={this.state.totalPrice}
+          purchasable={this.state.purchasable}/>
+        <Modal>
+          <OrderSummary ingredients={this.state.ingredients}/>
+        </Modal>
       </Aux>
     );
   }

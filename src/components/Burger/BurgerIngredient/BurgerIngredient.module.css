@@ -5,6 +5,9 @@
     border-radius: 0 0 30px 30px;
     box-shadow: inset -15px 0 #c15711;
     margin: 2% auto;
+    display: flex;
+flex-direction: row;
+align-items: center;
 }
 
 .BreadTop {
@@ -41,7 +44,7 @@
     transform: rotate(60deg);
     box-shadow: inset -1px 2px #c9c9c9;
   }
-  
+
 .Seeds1:before {
     content: "";
     width: 100%;
@@ -66,7 +69,7 @@
     transform: rotate(10deg);
     box-shadow: inset -3px 0 #c9c9c9;
   }
-  
+
   .Seeds2:before {
     content: "";
     width: 100%;
@@ -79,7 +82,7 @@
     transform: rotate(90deg);
     box-shadow: inset 1px 3px #c9c9c9;
   }
-  
+
 
 .Meat {
     width: 80%;
